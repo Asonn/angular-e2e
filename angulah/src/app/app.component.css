@@ -1,0 +1,14 @@
+.tof {
+	background: lightgoldenrodyellow;
+}
+
+input.ng-touched.ng-valid {
+	background: lightgreen;
+}
+input.ng-touched.ng-invalid {
+	background: lightpink;
+}
+
+:disabled {
+	box-shadow: 0 0 5px 3px red;
+}
