@@ -3,18 +3,18 @@
 <div style="display: flex;">
 	<div>
 		<h3>Reactive</h3>
-		<form (submit)="addGameReactive()" [formGroup]="form">
+		<form (submit)="addGameReactive()" [formGroup]="form" id="reactive-form">
 			<ol>
 				<li>
 					<label for="input-titel">Titel:</label>
-					<input id="input-titel" formControlName="title" />
+					<input id="input-titel" formControlName="title">
 					<span *ngIf="q.title.touched && q.title.invalid">Niet geldig.</span>
 					<span *ngIf="q.title.touched && q.title.errors?.required">Vul in.</span>
 					<span *ngIf="q.title.touched && q.title.errors?.pattern">Geen Chinese zooi.</span>
 				</li>
 				<li>
 					<label>Rating:</label>
-					<input type="range" min="1" max="10" formControlName="rating" />
+					<input type="range" id="input-rating" min="1" max="10" formControlName="rating" />
 				</li>
 				<li>
 					<button [disabled]="form.invalid">Add game</button>
@@ -31,8 +31,8 @@
 		<form (submit)="addGameTemplate()" #f="ngForm">
 			<ol>
 				<li>
-					<label for="input-titel">Titel:</label>
-					<input id="input-titel"
+					<label for="input-titel-template">Titel:</label>
+					<input id="input-titel-template"
 						   [(ngModel)]="newGame.title"
 						   name="title"
 						   required
@@ -69,8 +69,7 @@
 		<tr
 			*ngFor="let game of games"
 			[class.tof]="game.rating > 8"
-			(click)="game.rating = game.rating + 1"
-		>
+			(click)="game.rating = game.rating + 1">
 			<td>{{ game.id }}</td>
 			<td>{{ game.title }}</td>
 			<td>{{ game.rating | euro }}</td>

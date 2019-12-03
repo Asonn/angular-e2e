@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Game } from './models/game';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
-function mijnValidator(control: AbstractControl) {
-	return { jouwKey: 'error message' };
-}
+// function mijnValidator(control: AbstractControl) {
+// 	return { jouwKey: 'error message' };
+// }
 
 @Component({
 	selector: 'app-root',
@@ -13,7 +13,7 @@ function mijnValidator(control: AbstractControl) {
 })
 export class AppComponent {
 	form = new FormGroup({
-		title: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9 _-]+$'), mijnValidator]),
+		title: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9 _-]+$')]),
 		rating: new FormControl()
 	});
 	newGame = {} as Game;
