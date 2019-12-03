@@ -1,0 +1,57 @@
+/* layouttechniek: flexible boxes */
+
+/* don't try this at home */
+body {
+	transition: 4s all ease;
+}
+body:hover {
+	/* transform: rotate(720deg); */
+}
+
+nav ol {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+nav a {
+	background: lightgreen;
+	text-decoration: none;
+	padding: 7px;
+	display: block;
+	margin: 5px;
+	transition: 4s ease all;
+}
+nav a:hover {
+	background: lightblue;
+	border-radius: 50%;
+	box-shadow: -10px -10px 10px 3px purple;
+	transform: rotate(6000deg) scale(2);
+}
+
+#blokjes {
+	background: red;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#blokjes div {
+	background: orange;
+	padding: 25px;
+	margin: 5px;
+}
+
+/* #blokjes {
+	background: red;
+}
+
+#blokjes div {
+	background: orange;
+	padding: 25px;
+	margin: 5px;
+	float: left;
+}
+
+footer {
+	clear: left;
+} */

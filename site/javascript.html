@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Document</title>
+		<!-- <script src="script.js"></script> -->
+		<script src="dom.js"></script>
+		<script src="jsapis.js" defer></script>
+
+		<style>
+			#droparea {
+				background: lightpink;
+				border: 3px dashed purple;
+				border-radius: 20px;
+				width: 400px;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>Drag &#039;n drop</h2>
+		<div id="droparea"></div>
+		
+
+		<h2>Chat met Web Sockets</h2>
+		<button onclick="connect();">Connect</button>
+
+		<input id="input-message">
+		<button onclick="say();">Zeg</button>
+
+		<ol id="chat-messages"></ol>
+
+
+
+		<h2>Web Workers</h2>
+		<!-- background threads -->
+
+		<input id="fibo-input" />
+		<button onclick="berekenFibo();">Bereken Fibo</button>
+
+		Resultaat: <span id="fibo-result"></span>
+
+		<h2>Web Storage</h2>
+
+		Local Counter: <span id="local-counter">(nog niet gezet)</span><br />
+		Session Counter: <span id="session-counter">(nog niet gezet)</span>
+
+		<h2>Geolocation</h2>
+		Latitude: <span id="latitude">-</span><br />
+		Longitude: <span id="longitude">-</span><br />
+		Accuracy: <span id="accuracy">-</span><br />
+		<button onclick="doeLocatiebepaling();">Locatie</button>
+
+		<button onclick="addGame();">Add game</button>
+
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Game</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Fortnite</td>
+					<td>8.5</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Minecraft</td>
+					<td>10</td>
+				</tr>
+				<tr>
+					<td>65</td>
+					<td>Apex Legends</td>
+					<td>7</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
