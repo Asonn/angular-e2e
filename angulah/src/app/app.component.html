@@ -1,3 +1,13 @@
+<h2>Autocompleter</h2>
+
+<autocompleter [data]="games" displayProp="title" (itemSelect)="search($event)"></autocompleter>
+
+<h2>Lifecycle</h2>
+
+<button (click)="toonLifecycle = !toonLifecycle">Toggle lifecycle</button>
+
+<lifecycle *ngIf="toonLifecycle" message="hoi"></lifecycle>
+
 <h2>Add game</h2>
 
 <div style="display: flex;">

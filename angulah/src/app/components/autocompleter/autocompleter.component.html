@@ -1,0 +1,15 @@
+<div id="container">
+	<input id="query"
+		[formControl]="query"
+		(keyup)="autocomplete()"
+		(keydown.arrowdown)="next()"
+		(keydown.enter)="select()"
+		placeholder="🔎"
+	/>
+
+	<ul *ngIf="results && results.length > 0">
+		<li *ngFor="let item of results" [class.highlight]="item.highlight">
+			🔎 {{ item[displayProp] }}
+		</li>
+	</ul>
+</div>

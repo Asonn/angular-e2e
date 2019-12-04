@@ -1,0 +1,40 @@
+.highlight {
+	background: lightskyblue;
+}
+
+
+input {
+	padding: 7px;
+	border: 1px solid lightgray;
+	box-shadow: 0 0 3px lightgray;
+	border-radius: 15px;
+	outline: none;
+	width: calc(100% - 14px);
+	display: block;
+}
+#query::before {
+	display: block;
+	content: 'HALLO';
+}
+
+
+#container {
+	position: relative;
+	width: 200px;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 20px;
+	border-left: 1px solid lightgray;
+	border-right: 1px solid lightgray;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	background: white;
+	width: 100%;
+}
+li {
+	padding: 7px;
+}
