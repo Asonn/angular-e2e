@@ -9,14 +9,26 @@ import localeNl from '@angular/common/locales/nl';
 import { EuroPipe } from './pipes/euro.pipe';
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { AutocompleterComponent } from './components/autocompleter/autocompleter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GameApi } from './apis/game.api';
 
 // the second parameter 'nl' is optional
 registerLocaleData(localeNl, 'nl');
 
 @NgModule({
-	declarations: [AppComponent, EuroPipe, LifecycleComponent, AutocompleterComponent], // componenten pipes directives
-	imports: [BrowserModule, FormsModule, ReactiveFormsModule], // modules
-	providers: [{ provide: LOCALE_ID, useValue: 'nl' }], // dependency injection & globale instellingen
+	declarations: [
+		AppComponent,
+		EuroPipe,
+		LifecycleComponent,
+		AutocompleterComponent
+	], // componenten pipes directives
+	imports: [
+		BrowserModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule
+	], // modules
+	providers: [{ provide: LOCALE_ID, useValue: 'nl' }, GameApi], // dependency injection & globale instellingen
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

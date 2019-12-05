@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NavigateService } from 'src/app/services/navigate.service';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
 
 @Component({
 	selector: 'autocompleter',
@@ -13,7 +16,19 @@ export class AutocompleterComponent {
 	results: any[];
 	query = new FormControl();
 
+	constructor(private navigateService: NavigateService) {}
+
+	ngOnInit() {
+		this.query.valueChanges
+			.pipe(
+				debounceTime(300),
+				distinctUntilChanged()
+			)
+			.subscribe(() => this.autocomplete());
+	}
+
 	autocomplete() {
+		console.log('autocompleting', this.query.value);
 		if (!this.query.value) {
 			delete this.results;
 			return;
@@ -38,15 +53,7 @@ export class AutocompleterComponent {
 	}
 
 	next() {
-		for (let i = 0; i < this.results.length; i++) {
-			if (this.results[i].highlight) {
-				delete this.results[i].highlight;
-				this.results[(i + 1) % this.results.length].highlight = true;
-				return;
-			}
-		}
-
-		this.results[0].highlight = true;
+		this.navigateService.next(this.results);
 	}
 
 	select() {

@@ -1,10 +1,21 @@
 import { AutocompleterComponent } from './autocompleter.component';
+import { NavigateService } from 'src/app/services/navigate.service';
+import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('Component: Autocompleter', () => {
 	let autocompleter: AutocompleterComponent;
+	let navigateServiceMock;
 
 	beforeEach(() => {
-		autocompleter = new AutocompleterComponent();
+		navigateServiceMock = jasmine.createSpyObj('navigateService', ['next']);
+
+		TestBed.configureTestingModule({
+			declarations: [AutocompleterComponent],
+			imports: [ReactiveFormsModule],
+			providers: [{ provide: NavigateService, useValue: navigateServiceMock }]
+		});
+		autocompleter = TestBed.createComponent(AutocompleterComponent).componentInstance;
 	});
 
 	it('should autocomplete a list of suggestions', () => {
@@ -79,38 +90,13 @@ describe('Component: Autocompleter', () => {
 		expect(autocompleter.results).toEqual(undefined);
 	});
 
-	describe('navigating next', () => {
-		let data;
-
-		beforeEach(() => {
-			data = [
-				{ x: 'hoi' },
-				{ x: 'heuj' },
-				{ x: 'doei' },
-				{ x: 'whatever' }
-			] as any[];
-			autocompleter.data = data;
-			autocompleter.query.setValue('e');
-			autocompleter.autocomplete();
-		});
-
-		it('should support nexting to the first item', () => {
-			autocompleter.next();
-			expect(autocompleter.results[0].highlight).toBe(true);
-		});
-
-		it('should support nexting beyond the first item', () => {
-			autocompleter.next();
-			autocompleter.next();
-			expect(autocompleter.results[0].highlight).toBeUndefined();
-			expect(autocompleter.results[1].highlight).toBe(true);
-		});
-
-		it('should support beyond to the last item', () => {
-			autocompleter.results.forEach(i => autocompleter.next());
-			autocompleter.next();
-			expect(autocompleter.results[autocompleter.results.length - 1].highlight).toBeUndefined();
-			expect(autocompleter.results[0].highlight).toBe(true);
-		});
+	it('should handle empty query values gracefully', () => {
+		autocompleter.data = [{ x: 'hoi' }, { x: 'doei' }, { x: 'whatever' }];
+		autocompleter.query.setValue('e');
+		autocompleter.autocomplete();
+		autocompleter.next();
+		expect(navigateServiceMock.next).toHaveBeenCalled();
 	});
+
+
 });

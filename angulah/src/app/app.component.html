@@ -67,7 +67,9 @@
 	</div>
 </div>
 
-<table>
+<div *ngIf="!games || games.length === 0">Geen games nog.</div>
+
+<table *ngIf="games && games.length > 0">
 	<thead>
 		<tr>
 			<th>ID</th>

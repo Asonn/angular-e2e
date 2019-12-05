@@ -1,7 +1,6 @@
 <div id="container">
 	<input id="query"
 		[formControl]="query"
-		(keyup)="autocomplete()"
 		(keydown.arrowdown)="next()"
 		(keydown.enter)="select()"
 		placeholder="🔎"
