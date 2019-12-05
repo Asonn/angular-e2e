@@ -2,10 +2,23 @@ Dit is de zooipage.
 
 <h2>Autocompleter</h2>
 
-<autocompleter [data]="games" displayProp="title" (itemSelect)="search($event)"></autocompleter>
+<autocompleter
+	[data]="games"
+	displayProp="title"
+	(itemSelect)="search($event)"
+></autocompleter>
 
 <h2>Lifecycle</h2>
 
 <button (click)="toonLifecycle = !toonLifecycle">Toggle lifecycle</button>
 
 <lifecycle *ngIf="toonLifecycle" message="hoi"></lifecycle>
+
+<form [formGroup]="pcForm">
+	Postcode: <input formControlName="postcode" /><br />
+	Huisnummer:
+	<input
+		formControlName="huisnummer"
+		[focusOn]="pcForm.value.postcode && pcForm.value.postcode.length === 6"
+	/>
+</form>

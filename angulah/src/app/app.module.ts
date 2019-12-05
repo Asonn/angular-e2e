@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { GamePage } from './pages/game/game.page';
 import { ZooiPage } from './pages/zooi/zooi.page';
+import { FocusOnDirective } from './directives/focus-on.directive';
 
 // the second parameter 'nl' is optional
 registerLocaleData(localeNl, 'nl');
@@ -26,7 +27,8 @@ registerLocaleData(localeNl, 'nl');
 		LifecycleComponent,
 		AutocompleterComponent,
 		GamePage,
-		ZooiPage
+		ZooiPage,
+		FocusOnDirective
 	], // componenten pipes directives
 	imports: [
 		BrowserModule,

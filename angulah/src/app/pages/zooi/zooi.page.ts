@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
 	templateUrl: './zooi.page.html',
@@ -8,6 +9,11 @@ import { map } from 'rxjs/operators';
 })
 export class ZooiPage implements OnInit {
 	toonLifecycle = false;
+
+	pcForm = new FormGroup({
+		postcode: new FormControl(),
+		huisnummer: new FormControl()
+	});
 
 	constructor(private route: ActivatedRoute) {
 		console.log('hallo vanuit zooi constructor');
