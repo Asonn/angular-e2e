@@ -1,6 +1,7 @@
 {
 	"extends": "tslint:recommended",
 	"rules": {
+		
 		"prefer-const": false,
 		"indent": [true, "tabs", 4],
 		"array-type": false,
@@ -8,7 +9,7 @@
 		"deprecation": {
 			"severity": "warning"
 		},
-		"component-class-suffix": true,
+		"component-class-suffix": false,
 		"contextual-lifecycle": true,
 		"directive-class-suffix": true,
 		"directive-selector": [true, "attribute", "app", "camelCase"],

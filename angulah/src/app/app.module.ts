@@ -11,6 +11,10 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { AutocompleterComponent } from './components/autocompleter/autocompleter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameApi } from './apis/game.api';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
+import { GamePage } from './pages/game/game.page';
+import { ZooiPage } from './pages/zooi/zooi.page';
 
 // the second parameter 'nl' is optional
 registerLocaleData(localeNl, 'nl');
@@ -20,13 +24,16 @@ registerLocaleData(localeNl, 'nl');
 		AppComponent,
 		EuroPipe,
 		LifecycleComponent,
-		AutocompleterComponent
+		AutocompleterComponent,
+		GamePage,
+		ZooiPage
 	], // componenten pipes directives
 	imports: [
 		BrowserModule,
 		FormsModule,
 		ReactiveFormsModule,
-		HttpClientModule
+		HttpClientModule,
+		RouterModule.forRoot(routes)
 	], // modules
 	providers: [{ provide: LOCALE_ID, useValue: 'nl' }, GameApi], // dependency injection & globale instellingen
 	bootstrap: [AppComponent]
