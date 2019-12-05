@@ -5,12 +5,12 @@ import { Subject, Observable } from 'rxjs';
 
 @Injectable()
 export class GameApi {
-	subject = new Subject<Game[]>();
+	private subject = new Subject<Game[]>();
 	private games: Game[];
 
 	constructor(private http: HttpClient) {}
 
-	query() {
+	query(): Observable<Game[]> {
 		this.http
 			.get<Game[]>('http://localhost:3000/games')
 			.subscribe(games => {
