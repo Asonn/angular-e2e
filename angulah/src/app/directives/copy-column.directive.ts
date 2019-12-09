@@ -23,6 +23,7 @@ export class CopyColumnDirective {
 
 	@HostListener('mouseup', ['$event'])
 	mouseup(e) {
+		console.log('mouseup');
 		this.selecting = false;
 
 		if (e.target.tagName === 'TD') {

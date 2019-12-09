@@ -17,6 +17,10 @@ import { GamePage } from './pages/game/game.page';
 import { ZooiPage } from './pages/zooi/zooi.page';
 import { FocusOnDirective } from './directives/focus-on.directive';
 import { CopyColumnDirective } from './directives/copy-column.directive';
+import { DatachangerComponent } from './components/datachanger/datachanger.component';
+import { AuthPage } from './pages/auth/auth.page';
+import { AuthCallbackPage } from './pages/auth-callback/auth-callback.page';
+import { AuthGuard } from './guards/auth.guard';
 
 // the second parameter 'nl' is optional
 registerLocaleData(localeNl, 'nl');
@@ -30,7 +34,10 @@ registerLocaleData(localeNl, 'nl');
 		GamePage,
 		ZooiPage,
 		FocusOnDirective,
-		CopyColumnDirective
+		CopyColumnDirective,
+		DatachangerComponent,
+		AuthPage,
+		AuthCallbackPage
 	], // componenten pipes directives
 	imports: [
 		BrowserModule,
@@ -39,7 +46,7 @@ registerLocaleData(localeNl, 'nl');
 		HttpClientModule,
 		RouterModule.forRoot(routes)
 	], // modules
-	providers: [{ provide: LOCALE_ID, useValue: 'nl' }, GameApi], // dependency injection & globale instellingen
+	providers: [{ provide: LOCALE_ID, useValue: 'nl' }, GameApi, AuthGuard], // dependency injection & globale instellingen
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
