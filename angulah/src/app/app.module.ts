@@ -16,6 +16,7 @@ import { routes } from './app.routes';
 import { GamePage } from './pages/game/game.page';
 import { ZooiPage } from './pages/zooi/zooi.page';
 import { FocusOnDirective } from './directives/focus-on.directive';
+import { CopyColumnDirective } from './directives/copy-column.directive';
 
 // the second parameter 'nl' is optional
 registerLocaleData(localeNl, 'nl');
@@ -28,7 +29,8 @@ registerLocaleData(localeNl, 'nl');
 		AutocompleterComponent,
 		GamePage,
 		ZooiPage,
-		FocusOnDirective
+		FocusOnDirective,
+		CopyColumnDirective
 	], // componenten pipes directives
 	imports: [
 		BrowserModule,
