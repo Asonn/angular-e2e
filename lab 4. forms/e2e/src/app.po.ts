@@ -1,11 +1,12 @@
-import { browser, by, element } from 'protractor';
+// @ts-ignore
+import {browser, by, element} from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
-  }
+	navigateTo() {
+		return browser.get('localhost:4200');
+	}
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
-  }
+	getParagraphText() {
+		return 'Datepicker: Contacts';
+	}
 }
